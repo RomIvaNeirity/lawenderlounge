@@ -1,0 +1,17 @@
+.hero {
+  padding: 400px 0;
+  background-image: linear-gradient(
+      rgba(118, 125, 255, 0.2),
+      rgba(222, 224, 255, 0.5)
+    ),
+    url(../images/tm.jpg);
+  background-position: center top;
+  background-repeat: no-repeat;
+}
+
+h1 {
+  m;
+  position: relative;
+  top: 150px;
+  left: 100px;
+}
