@@ -20,6 +20,10 @@ p {
   margin: 0;
 }
 
+a {
+  text-decoration: none;
+}
+
 ul {
   list-style-type: none;
   padding: 0;
@@ -27,21 +31,20 @@ ul {
 }
 
 button {
-  padding: 0 5px;
   cursor: pointer;
   background-color: transparent;
   font-weight: 500;
   font-size: 16px;
   line-height: 1.5;
   letter-spacing: 0.04em;
-
+  display: block;
   text-shadow: 2px 2px rgb(23, 43, 56);
   height: 46px;
   color: rgb(246, 255, 164);
   border: none;
   border-radius: 4px;
   transition: background-color 250ms cubic-bezier(0.4, 0, 0.2, 1);
-  margin-left: 50px;
+  margin: 0 auto;
 }
 
 button:hover,
@@ -51,8 +54,8 @@ button:focus {
 
 .header {
   background-image: linear-gradient(
-      rgba(186, 112, 255, 0.192),
-      rgba(1, 175, 228, 0.295)
+      rgba(1, 175, 228, 0.295),
+      rgba(186, 112, 255, 0.192)
     ),
     url("../images/tm.jpg");
   border: 3px slategray solid;
@@ -62,10 +65,12 @@ button:focus {
   background-size: cover, 100px auto;
   background-position: center, 50px;
   padding: 20px 0;
+  display: flex;
 }
 
 .header-nav {
-  display: flex;
+  width: fit-content;
+
   gap: 32px;
   margin-left: 200px;
 }
@@ -73,6 +78,24 @@ button:focus {
 .header-nav-list {
   display: flex;
   gap: 32px;
+}
+
+.contacts {
+  display: flex;
+  font-style: normal;
+  margin-left: auto;
+}
+
+.contacts-list {
+  width: fit-content;
+  display: flex;
+  align-items: center;
+  gap: 40px;
+}
+
+.lng-nav {
+  margin-left: 40px;
+  margin-right: 50px;
 }
 
 .hero {
@@ -84,61 +107,63 @@ button:focus {
     ),
     url("../images/lavender-field.jpg");
   background-repeat: no-repeat, no-repeat;
-  background-size: cover, 1144px auto;
-  background-position: center, center;
+  background-size: cover, 900px auto;
+  background-position: center, left;
   border: 3px slategray solid;
   border-radius: 4px;
 }
 
 .hero-subcontainer {
-  margin-left: 50px;
-  margin-top: 120px;
-  margin-bottom: 100px;
+  background-color: #1b004da8;
+  padding: 30px 20px;
+  width: fit-content;
+  border-radius: 4px;
+  margin-left: 48%;
+  margin-top: 70px;
+  margin-bottom: 15%;
 }
 
 .hero-title {
-  background-color: transparent;
+  background-color: #1b004d;
   width: fit-content;
   color: rgb(207, 255, 167);
   border-radius: 4px;
-
+  padding: 0 10px;
   text-shadow: 2px 2px rgb(23, 43, 56);
-  padding: 10px 5px;
+
   font-weight: 500;
-  font-size: 22px;
+  font-size: 32px;
   line-height: 1.5;
   letter-spacing: 0.04em;
-  margin-bottom: 10px;
 }
 
 .hero-text {
-  background-color: transparent;
+  background-color: #1b004d;
   width: fit-content;
   color: rgb(246, 255, 164);
   border-radius: 4px;
-
+  padding: 0 10px;
   text-shadow: 2px 2px rgb(23, 43, 56);
-  padding: 10px 5px;
+  margin: 10px 0;
   font-weight: 500;
-  font-size: 16px;
+  font-size: 20px;
   line-height: 1.5;
   letter-spacing: 0.04em;
-  margin-bottom: 10px;
 }
 
 .hero-subtitle {
-  background-color: transparent;
+  background-color: #1b004d;
   width: fit-content;
   color: rgb(207, 255, 167);
   border-radius: 4px;
-
+  padding: 0 10px;
   text-shadow: 2px 2px rgb(23, 43, 56);
-  padding: 10px 5px;
+
   font-weight: 500;
-  font-size: 22px;
+  font-size: 24px;
   line-height: 1.5;
   letter-spacing: 0.04em;
-  margin-bottom: 10px;
+  margin: 40px 0;
 }
 
 .team-sctn-icon-list {
