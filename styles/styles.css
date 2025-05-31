@@ -1,3 +1,9 @@
+*,
+*::before,
+*::after {
+  box-sizing: border-box;
+}
+
 body {
   font-family: "Roboto", sans-serif;
   color: #434455;
@@ -49,7 +55,7 @@ button {
 
 button:hover,
 button:focus {
-  background-color: #404bbf;
+  background-color: rgb(87, 59, 100);
 }
 
 .header {
@@ -58,9 +64,9 @@ button:focus {
       rgba(186, 112, 255, 0.192)
     ),
     url("../images/tm.jpg");
-  border: 3px slategray solid;
-  border-radius: 4px;
-  border-bottom: none;
+  border: 2px slategray solid;
+  border-radius: 4px 4px 0 0;
+
   background-repeat: no-repeat, no-repeat;
   background-size: cover, 120px auto;
   background-position: center, 50px;
@@ -102,29 +108,26 @@ button:focus {
 }
 
 .hero {
-  max-width: 1144px;
-
   background-image: linear-gradient(
       rgba(186, 112, 255, 0.192),
-      rgba(1, 175, 228, 0.295)
+      rgba(1, 175, 228, 0.294)
     ),
     url("../images/lavender-field.jpg");
   background-repeat: no-repeat, no-repeat;
-  background-size: cover, 900px 800px;
-  background-position: center, left center;
-  border: 3px slategray solid;
-  border-radius: 4px;
+  background-size: cover, 800px auto;
+
+  border-bottom: none;
+  display: flex;
+  padding: 50px 20px;
 }
 
 .hero-subcontainer {
+  max-width: fit-content;
   background-color: #1b004da8;
   padding: 30px 20px;
-  width: fit-content;
+
   border-radius: 4px;
-  margin-left: 48%;
-  margin-top: 70px;
-  margin-bottom: 15%;
-  margin-right: 20px;
+  margin-left: auto;
 }
 
 .hero-title {
@@ -171,29 +174,28 @@ button:focus {
 }
 
 .features {
+  display: block;
+
+  padding: 50px 20px;
   max-width: 1144px;
 
-  background-image: linear-gradient(
-      rgba(1, 175, 228, 0.295),
-      rgba(186, 112, 255, 0.192)
-    ),
-    url("../images/lavender-vertic.jpg");
+  background-image: linear-gradient(rgba(1, 175, 228, 0.295));
+  align-items: center;
   background-repeat: no-repeat, no-repeat;
   background-size: cover, 500px auto;
-  background-position: center, right center;
-  border: 3px slategray solid;
-  border-radius: 4px;
+  background-position: center, right bottom;
 }
 
 .features-box {
+  background-size: cover, 500px auto;
+  background-position: center, right;
+  border-radius: 4px;
   background-color: #1b004da8;
   padding: 30px 20px;
   width: fit-content;
-  border-radius: 4px;
-  margin-left: 10%;
-  margin-top: 70px;
-  margin-bottom: 15%;
-  margin-right: auto;
+  display: flex;
+  padding: 50px 20px;
+  margin: 0 auto;
 }
 
 .features-title {
@@ -206,6 +208,91 @@ button:focus {
 
   font-weight: 500;
   font-size: 32px;
+  line-height: 1.5;
+  letter-spacing: 0.04em;
+  margin: 0 auto;
+  margin-bottom: 50px;
+  display: block;
+}
+
+.features-items {
+  padding: 0 10px;
+  border: 1px dotted rgb(183, 0, 255);
+}
+
+/*fliper*/
+
+.img-feat {
+  position: relative;
+  width: 600px;
+  height: 400px;
+  overflow: hidden;
+}
+
+.main-img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+
+.alt-img {
+  width: 600px;
+  height: 400px;
+}
+
+.img-overlay {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: rgba(20, 20, 20, 0.6);
+  color: white;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  transform: translateX(-100%); /* ховаємо ліворуч */
+  transition: transform 0.4s ease;
+  z-index: 2;
+}
+
+.features-items:hover {
+  transition: background-color 250ms cubic-bezier(0.4, 0, 0.2, 1);
+  background-color: rgb(87, 59, 100);
+  cursor: pointer;
+}
+
+.item-one:hover ~ .img-feat .overlay-one,
+.item-two:hover > overlay-one,
+.item-three:hover > overlay-one {
+  transform: translateX(0);
+}
+
+.features-subtitle {
+  background-color: #1b004d9a;
+  width: fit-content;
+  color: rgb(207, 255, 167);
+  border-radius: 4px;
+  padding: 0 10px;
+  text-shadow: 2px 2px rgb(23, 43, 56);
+
+  font-weight: 500;
+  font-size: 24px;
+  line-height: 1.5;
+  letter-spacing: 0.04em;
+  margin: 20px 0;
+}
+
+.features-text {
+  background-color: #1b004d9a;
+  width: fit-content;
+  color: rgb(246, 255, 164);
+  border-radius: 4px;
+  padding: 0 10px;
+  text-shadow: 2px 2px rgb(23, 43, 56);
+  margin: 10px 0;
+  font-weight: 500;
+  font-size: 14px;
   line-height: 1.5;
   letter-spacing: 0.04em;
 }
@@ -241,9 +328,9 @@ button:focus {
 }
 
 .footer {
-  border: 3px slategray solid;
-  border-radius: 4px;
-  border-top: none;
+  border: 2px slategray solid;
+  border-radius: 0 0 4px 4px;
+
   padding: 30px 0;
   background-image: linear-gradient(
     rgba(1, 175, 228, 0.295),
