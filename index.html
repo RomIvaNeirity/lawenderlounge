@@ -66,43 +66,53 @@
         </div>
       </section>
       <section class="features container">
-        <div class="features-box">
-          <h1 class="features-title">Photo, cofee & relax</h1>
-          <ul class="features-list">
-            <li class="features-items item-one">
-              <div class="feature-item-box">
-                <h2 class="features-subtitle">Photo-zone</h2>
-                <p class="features-text">
-                  Breathtaking scenery against the background of lavender.
-                </p>
-              </div>
-            </li>
-            <li class="features-items item-two">
-              <div class="feature-item-box">
-                <h2 class="features-subtitle">Coffee shop</h2>
-                <p class="features-text">
-                  Come in for a coffee. Something more awaits you...
-                </p>
-              </div>
-            </li>
-            <li class="features-items item-three">
-              <div class="feature-item-box">
-                <h2 class="features-subtitle">Lavender boutique</h2>
-                <p class="features-text">
-                  Lavender is more than a plant. Craft in our boutique.
-                </p>
-              </div>
-            </li>
-            <li class="features-items item-four">
-              <div class="feature-item-box">
-                <h2 class="features-subtitle">Our team</h2>
-                <p class="features-text">
-                  The friendly staff will fulfill all your wishes.
-                </p>
-              </div>
-            </li>
-          </ul>
-        </div>
+        <h1 class="features-title">Photo, cofee & relax</h1>
+        <ul class="features-list">
+          <li
+            class="features-items item-one"
+            data-img="./images/lavender-decor.jpg"
+            data-text="Photo-zone"
+          >
+            <h2 class="features-subtitle">Photo-zone</h2>
+            <p class="features-text">
+              Breathtaking scenery against the background of lavender.
+            </p>
+          </li>
+          <li
+            class="features-items item-two"
+            data-img="./images/lawender-cofee.jpg"
+            data-text="Coffee shop"
+          >
+            <h2 class="features-subtitle">Coffee shop</h2>
+            <p class="features-text">
+              Come in for a coffee. Something more awaits you...
+            </p>
+          </li>
+          <li
+            class="features-items item-three"
+            data-img="./images/lavender-oil.jpg"
+            data-text="Lavender boutique"
+          >
+            <h2 class="features-subtitle">Lavender boutique</h2>
+            <p class="features-text">
+              Lavender is more than a plant. Craft in our boutique.
+            </p>
+          </li>
+          <li
+            class="features-items item-four"
+            data-img="./images/img-staff.jpg"
+            data-text="Our Team"
+          >
+            <h2 class="features-subtitle">Our team</h2>
+            <p class="features-text">
+              The friendly staff will fulfill all your wishes.
+            </p>
+          </li>
+          <li class="hover-overlay">
+            <img class="hover-img" src="" alt="" />
+            <p class="hover-text"></p>
+          </li>
+        </ul>
       </section>
     </main>
     <footer class="footer container">
@@ -137,5 +147,32 @@
         </li>
       </ul>
     </footer>
+    <script>
+      const items = document.querySelectorAll(".features-items");
+      const overlay = document.querySelector(".hover-overlay");
+      const overlayImg = document.querySelector(".hover-img");
+      const overlayText = document.querySelector(".hover-text");
+
+      items.forEach((item) => {
+        item.addEventListener("mouseenter", () => {
+          const imgSrc = item.dataset.img;
+          const text = item.dataset.text;
+
+          overlayImg.src = imgSrc;
+          overlayText.textContent = text;
+
+          // Показати overlay
+          overlay.style.display = "flex";
+
+          // Центрувати overlay по висоті UL
+          const ul = document.querySelector(".features-list");
+          overlay.style.top = `${ul.offsetHeight / 2}px`;
+        });
+
+        item.addEventListener("mouseleave", () => {
+          overlay.style.display = "none";
+        });
+      });
+    </script>
   </body>
 </html>
