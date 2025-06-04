@@ -69,7 +69,7 @@
         <h1 class="features-title">Photo, cofee & relax</h1>
         <ul class="features-list">
           <li
-            class="features-items item-one"
+            class="features-items"
             data-img="./images/lavender-decor.jpg"
             data-text="Photo-zone"
           >
@@ -79,7 +79,7 @@
             </p>
           </li>
           <li
-            class="features-items item-two"
+            class="features-items"
             data-img="./images/lawender-cofee.jpg"
             data-text="Coffee shop"
           >
@@ -89,7 +89,7 @@
             </p>
           </li>
           <li
-            class="features-items item-three"
+            class="features-items"
             data-img="./images/lavender-oil.jpg"
             data-text="Lavender boutique"
           >
@@ -99,7 +99,7 @@
             </p>
           </li>
           <li
-            class="features-items item-four"
+            class="features-items"
             data-img="./images/img-staff.jpg"
             data-text="Our Team"
           >
@@ -147,31 +147,54 @@
         </li>
       </ul>
     </footer>
+
     <script>
       const items = document.querySelectorAll(".features-items");
       const overlay = document.querySelector(".hover-overlay");
       const overlayImg = document.querySelector(".hover-img");
       const overlayText = document.querySelector(".hover-text");
+      const ul = document.querySelector(".features-list");
+
+      let isFirstHover = true;
+      let hoverTimeout;
 
       items.forEach((item) => {
         item.addEventListener("mouseenter", () => {
-          const imgSrc = item.dataset.img;
-          const text = item.dataset.text;
+          clearTimeout(hoverTimeout);
 
-          overlayImg.src = imgSrc;
-          overlayText.textContent = text;
+          if (isFirstHover) {
+            // Перший ховер – показуємо одразу без затримки
+            overlayImg.src = item.dataset.img;
+            overlayText.textContent = item.dataset.text;
+            overlayImg.classList.add("visible");
+            overlayText.classList.add("visible");
 
-          // Показати overlay
-          overlay.style.display = "flex";
+            // Показати overlay при першому вході
+            overlay.classList.add("visible");
+            overlay.style.top = `${ul.offsetHeight / 2}px`;
 
-          // Центрувати overlay по висоті UL
-          const ul = document.querySelector(".features-list");
-          overlay.style.top = `${ul.offsetHeight / 2}px`;
+            isFirstHover = false;
+          } else {
+            // Для наступних ховерів плавно ховаємо, чекаємо, оновлюємо та показуємо
+            overlayImg.classList.remove("visible");
+            overlayText.classList.remove("visible");
+
+            hoverTimeout = setTimeout(() => {
+              overlayImg.src = item.dataset.img;
+              overlayText.textContent = item.dataset.text;
+              overlayImg.classList.add("visible");
+              overlayText.classList.add("visible");
+            }, 200); // Затримка як у CSS transition
+          }
         });
+      });
 
-        item.addEventListener("mouseleave", () => {
-          overlay.style.display = "none";
-        });
+      // Коли миша виходить за межі UL — ховаємо все
+      ul.addEventListener("mouseleave", () => {
+        overlay.classList.remove("visible");
+        overlayImg.classList.remove("visible");
+        overlayText.classList.remove("visible");
+        isFirstHover = true;
       });
     </script>
   </body>

@@ -202,9 +202,6 @@ button:focus {
   display: block;
 }
 
-.features-box {
-}
-
 .features-list {
   width: 100%;
   height: auto;
@@ -219,12 +216,11 @@ button:focus {
   border-radius: 4px;
   width: 97%;
   margin: 0 auto;
+  overflow: hidden;
 }
 
 .features-items {
   padding: 10px;
-  position: relative;
-
   max-width: 100%;
 }
 
@@ -234,27 +230,26 @@ button:focus {
 
 .hover-overlay {
   position: absolute;
-  left: 37%;
-
+  right: 0;
+  top: 0;
+  left: auto;
+  display: flex;
   width: 60%;
   height: 95%;
-  transform: translateY(-50%);
   pointer-events: none;
-  display: none; /* Ховаємо за замовчуванням */
   flex-direction: column;
   justify-content: center;
   align-items: center;
   z-index: 100;
   border-radius: 4px;
-
   opacity: 0;
-  transform: translateY(-50%) scale(0.95); /* трохи зменшений */
-  transition: opacity 0.3s ease, transform 0.3s ease;
+  transform: translateX(100%) scale(0.95);
+  transition: opacity 0.8s ease, transform 0.8s ease;
 }
 
-.features-items:hover ~ .hover-overlay {
+.hover-overlay.visible {
   opacity: 1;
-  transform: translateY(-50%) scale(1); /* повний розмір */
+  transform: translate(0, -50%) scale(1);
 }
 
 .hover-img {
@@ -273,8 +268,18 @@ button:focus {
   font-size: 16px;
 }
 
-.feature-item-box {
-  border-radius: 4px;
+.hover-img,
+.hover-text {
+  opacity: 0;
+  transform: scale(0.95);
+  transition: opacity 0.8s ease, transform 0.8s ease;
+  will-change: opacity, transform;
+}
+
+.hover-img.visible,
+.hover-text.visible {
+  opacity: 1;
+  transform: scale(1);
 }
 
 .features-subtitle {
