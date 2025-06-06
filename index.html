@@ -56,7 +56,7 @@
     <main>
       <section class="hero container">
         <div class="hero-subcontainer">
-          <h1 class="hero-title">Wellcome to Lavender Lounge</h1>
+          <h1 class="section-title">Wellcome to Lavender Lounge</h1>
           <p class="hero-text">
             Your cozy location on the outskirts of Boryspil
           </p>
@@ -66,7 +66,9 @@
         </div>
       </section>
       <section class="features container">
-        <h1 class="features-title">Photo, cofee & relax</h1>
+        <div class="section-title-container">
+          <h1 class="section-title">Photo, cofee & relax</h1>
+        </div>
         <ul class="features-list">
           <li
             class="features-items"
@@ -113,6 +115,37 @@
             <p class="hover-text"></p>
           </li>
         </ul>
+      </section>
+      <section class="location container">
+        <div class="section-title-container">
+          <h1 class="section-title">Location</h1>
+        </div>
+        <div class="map-container">
+          <iframe
+            class="map"
+            src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d2547.3400641975404!2d30.9438793!3d50.3229065!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x40d4efd64de3bbab%3A0xa4417232a15679a7!2sLavender%20Lounge!5e0!3m2!1sru!2sua!4v1749043518238!5m2!1sru!2sua"
+            width="600"
+            height="450"
+            style="border: 0"
+            allowfullscreen=""
+            loading="lazy"
+            referrerpolicy="no-referrer-when-downgrade"
+          ></iframe>
+          <ul class="location-dscrb-list">
+            <li class="location-dscrb-item">
+              <h2 class="location-dscrb-text">50 km from the center of Kyiv</h2>
+            </li>
+            <li class="location-dscrb-item">
+              <h2 class="location-dscrb-text">Convenient access road</h2>
+            </li>
+            <li class="location-dscrb-item">
+              <h2 class="location-dscrb-text">
+                Additional infrastructure nearby: minimarket, restaurant,
+                football field, spa center.
+              </h2>
+            </li>
+          </ul>
+        </div>
       </section>
     </main>
     <footer class="footer container">
@@ -171,7 +204,6 @@
 
             // Показати overlay при першому вході
             overlay.classList.add("visible");
-            overlay.style.top = `${ul.offsetHeight / 2}px`;
 
             isFirstHover = false;
           } else {
